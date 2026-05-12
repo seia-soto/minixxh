@@ -18,7 +18,9 @@
     }
   },
   "scripts": {
-    "bench": "node --import=tsimp bench/xxh32.ts",
+    "bench": "pnpm bench:xxh32 && pnpm bench:xxh32d64",
+    "bench:xxh32": "node --import=tsimp bench/xxh32.ts",
+    "bench:xxh32d64": "node --import=tsimp bench/xxh32d64.ts",
     "build": "tsc --project tsconfig.json",
     "format": "prettier . --check --log-level error",
     "lint": "eslint src test bench eslint.config.js",
