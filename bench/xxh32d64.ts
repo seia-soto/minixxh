@@ -1,11 +1,5 @@
-import {
-  xxh32d64
-} from '../src/xxh32d64.js';
-import {
-  CASES,
-  createInput,
-  runBench,
-} from './runner.js';
+import { xxh32d64 } from '../src/xxh32d64.js';
+import { CASES, createInput, runBench } from './runner.js';
 
 for (const benchCase of CASES) {
   const input = createInput(benchCase.size);

@@ -1,6 +1,6 @@
 {
   "name": "minixxh",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "xxHash in Javascript",
   "type": "module",
   "exports": {

@@ -24,6 +24,7 @@ export function xxh32d64(
   let p = beg;
   let h32High: number;
   let h32Low: number;
+  let lane: number;
 
   if (len >= 16) {
     const limit16 = end - 16;
@@ -35,7 +36,6 @@ export function xxh32d64(
     let lowV2 = XXH32D64_SEED_LOW + PRIME32_2;
     let lowV3 = XXH32D64_SEED_LOW;
     let lowV4 = XXH32D64_SEED_LOW - PRIME32_1;
-    let lane: number;
 
     while (p <= limit16) {
       lane =
@@ -124,7 +124,7 @@ export function xxh32d64(
   h32Low += len;
 
   while (p <= end4) {
-    const lane =
+    lane =
       input[p]! |
       (input[p + 1]! << 8) |
       (input[p + 2]! << 16) |
@@ -144,7 +144,7 @@ export function xxh32d64(
   }
 
   while (p < end) {
-    const lane = input[p++]!;
+    lane = input[p++]!;
 
     h32High += Math.imul(lane, PRIME32_5);
     h32High = Math.imul(

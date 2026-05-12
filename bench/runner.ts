@@ -65,7 +65,8 @@ export function runBench(
   { name, hash }: Func,
   pref: Pref,
 ): void {
-  let check: bigint | number = typeof hash() === 'bigint' ? 0n : 0;
+  let check: bigint | number =
+    typeof hash() === 'bigint' ? 0n : 0;
 
   for (let i = 0; i < pref.warmup; i++) {
     hash();
@@ -79,8 +80,7 @@ export function runBench(
   }
 
   const seconds = (performance.now() - start) / 1000;
-  const megabytes =
-    (pref.size * pref.iterations) / 1024 / 1024;
+  const megabytes = (pref.size * pref.iterations) / 1024 / 1024;
   const throughput = megabytes / seconds;
 
   console.log(

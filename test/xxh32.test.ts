@@ -9,20 +9,13 @@ test('xxh32 matches xxhashjs h32', (t) => {
   const SEED = 0x9e3779b1 | 0;
 
   fc.assert(
-    fc.property(
-      fc.uint8Array({ maxLength: 1024 }),
-      (bytes) => {
-        const actual = xxh32(bytes, 0, bytes.length) >>> 0;
-        const expected =
-          XXH.h32(Buffer.from(bytes), SEED).toNumber() >>> 0;
+    fc.property(fc.uint8Array({ maxLength: 1024 }), (bytes) => {
+      const actual = xxh32(bytes, 0, bytes.length) >>> 0;
+      const expected =
+        XXH.h32(Buffer.from(bytes), SEED).toNumber() >>> 0;
 
-        t.is(
-          actual,
-          expected,
-          `Uint8Array<${bytes.toString()}>`,
-        );
-      },
-    ),
+      t.is(actual, expected, `Uint8Array<${bytes.toString()}>`);
+    }),
     {
       numRuns: 1_000_000,
       seed: 0x12345678,

@@ -48,7 +48,7 @@ npm install minixxh
 ### `xxh32(input: Uint8Array, beg: number, end: number): number`
 
 ```javascript
-import { xxh32 } from 'minixxh';
+import { xxh32 } from 'minixxh/xxh32';
 
 const input = new TextEncoder().encode('abcd');
 const hash = xxh32(input, 0, input.length);
@@ -64,7 +64,7 @@ console.log(hash.toString(16));
 ### `xxh32d64(input: Uint8Array, beg: number, end: number): bigint`
 
 ```javascript
-import { xxh32d64 } from 'minixxh';
+import { xxh32d64 } from 'minixxh/xxh32d64';
 
 const input = new TextEncoder().encode('abcd');
 const hash = xxh32d64(input, 0, input.length);
